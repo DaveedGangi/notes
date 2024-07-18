@@ -11,6 +11,9 @@ const jwt = require('jsonwebtoken');
 const app = express();
 app.use(express.json());
 
+let cors = require('cors');
+app.use(cors());
+
 const dbPath = path.join(__dirname, "userData.db");
 
 let db = null;
