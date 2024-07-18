@@ -1,0 +1,60 @@
+
+
+POST http://localhost:3000/register/
+Content-Type: application/json
+
+{
+    "username": "Daveed",
+    "password": "Daveed123"
+}
+
+###
+
+POST http://localhost:3000/login/
+Content-Type: application/json
+
+{
+    "username": "Daveed",
+    "password": "Daveed123"
+}
+
+###
+
+POST http://localhost:3000/notesAdd/
+Content-Type: application/json
+
+{   
+    "title": "My First Note",
+    "content": "This is my first note",
+    "background_color":"#ffffff",
+    "id":"1"
+
+    
+}
+
+###
+
+GET http://localhost:3000/notesTaken/
+
+###
+
+PUT http://localhost:3000/noteUpdate/1
+Content-Type: application/json
+
+{
+    "title": "Updated Note",
+    "content": "This is my updated note",
+    "background_color":"#ffffff",
+    "is_archived":0,
+    "is_trashed":0
+
+}
+
+###
+
+DELETE http://localhost:3000/noteDelete/2
+
+###
+
+
+GET http://localhost:3000/notesTakenSearch?title=My First Note&content=This is my first note
