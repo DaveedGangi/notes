@@ -61,10 +61,12 @@ app.post("/register/", async (request, response) => {
                 );`;
         const dbResponse = await db.run(createUserQuery);
         response.status(200);
-        response.send("User created successfully");
+        response.send({ message: "User created successfully" });
+     
     } else {
         response.status(400);
-        response.send("User already exists");
+        
+        response.send({errorMessage:"User already exists"});
     }
 
   });
@@ -80,7 +82,8 @@ app.post("/register/", async (request, response) => {
 
     if (dbUser === undefined) {
         response.status(400);
-        response.send("Invalid user");
+        
+        response.send({ errorMessage:"Invalid user"})
     } else {
         const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
         if (isPasswordMatched === true) {
@@ -93,7 +96,7 @@ app.post("/register/", async (request, response) => {
 
         } else {
             response.status(400);
-            response.send("Invalid password");
+            response.send({errorMessage: "Invalid password" });
         }
     }
 
@@ -110,6 +113,7 @@ app.post("/register/", async (request, response) => {
     const dbResponse = await db.run(inesertingQuery);
     response.status(200);
     response.send("Note created successfully");
+    
 
   });
 
