@@ -52,7 +52,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/noteDelete/2
+DELETE http://localhost:3000/noteDelete/1
 
 ###
 

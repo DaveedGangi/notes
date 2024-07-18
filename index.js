@@ -140,8 +140,8 @@ app.post("/register/", async (request, response) => {
     // update each notes
     app.put("/noteUpdate/:id", async (request, response) => {
     const { id } = request.params;
-    const { title, content,background_color } = request.body;
-    const updateQuery = `UPDATE Notes SET title = '${title}', content = '${content}',background_color = '${background_color}' WHERE id = '${id}';`;
+    const { title, content,background_color,is_archived,is_trashed } = request.body;
+    const updateQuery = `UPDATE Notes SET title = '${title}', content = '${content}',background_color = '${background_color}',is_archived='${is_archived}',is_trashed='${is_trashed}' WHERE id = '${id}';`;
     const dbResponse = await db.run(updateQuery);
     response.status(200);
     response.send("Note updated successfully");
