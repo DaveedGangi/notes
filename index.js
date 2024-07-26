@@ -138,7 +138,7 @@ app.post("/register/", async (request, response) => {
     // delete each notes
     app.delete("/noteDelete/:id", async (request, response) => {
     const { id } = request.params;
-    const deleteQuery = `DELETE FROM Notes WHERE id = ${id};`;
+    const deleteQuery = `DELETE FROM Notes WHERE note_id = ${id};`;
     const dbResponse = await db.run(deleteQuery);
     response.status(200);
     response.send("Note deleted successfully");
