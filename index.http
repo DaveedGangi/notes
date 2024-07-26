@@ -27,7 +27,7 @@ Content-Type: application/json
     "title": "My First Note",
     "content": "This is my first note",
     "background_color":"#ffffff",
-    "id":"1"
+    "id":1
 
     
 }
@@ -58,3 +58,15 @@ DELETE http://localhost:3000/noteDelete/1
 
 
 GET http://localhost:3000/notesTakenSearch?title=My First Note&content=This is my first note
+
+
+###
+
+GET http://localhost:3000/notesTakenArchive/
+
+###
+
+GET http://localhost:3000/notesTakenTrash/
+
+
+

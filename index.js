@@ -142,6 +142,7 @@ app.post("/register/", async (request, response) => {
     const dbResponse = await db.run(deleteQuery);
     response.status(200);
     response.send("Note deleted successfully");
+
     });
 
     // update each notes
@@ -171,5 +172,20 @@ app.post("/register/", async (request, response) => {
     });
  
    
+
+app.get("/notesTakenArchive/", async (request, response) => {
+    const selectQuery = `SELECT * FROM Notes WHERE is_archived = 1;`;
+    const dbResponse = await db.all(selectQuery);
+    response.status(200);
+    response.send(dbResponse);
+
+});
+    app.get("/notesTakenTrash/", async (request, response) => {
+        const selectQuery = `SELECT * FROM Notes WHERE is_trashed = 1;`;
+        const dbResponse = await db.all(selectQuery);
+        response.status(200);
+        response.send(dbResponse);
+
+});
 
 
